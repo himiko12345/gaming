@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var result_1;
+var result_2;
+
+//計算提款罰金
+function penalty() {
+var a = getFirst();
+var b = getSecond();
+var c = getThird();
+var re = (c * a)/100 + Number(b);
+sendResult(re);
+}
+//給p標簽傳值
+function sendResult(result_1) {
+var num = document.getElementById("result")
+num.innerHTML = result_1;
+}
+//獲取取款行政費的值
+function getFirst() {
+var firstNumber = document.getElementById("first").value;
+return firstNumber;
+}
+//獲取取款手續費的值
+function getSecond() {
+var secondNumber = document.getElementById("second").value;
+return secondNumber;
+}
+//獲取提款金額的值
+function getThird() {
+var ThirdNumber = document.getElementById("wd_amt").value;
+return ThirdNumber;
+}
+
+//計算優惠罰金
+function penalty2() {
+var a = getFirst2();
+var b = getSecond2();
+var c = getThird2();
+var re = Number(c) + (c * a)/100 + Number(b);
+sendResult2(re);
+}
+//給p標簽傳值
+function sendResult2(result_2) {
+var num = document.getElementById("result2")
+num.innerHTML = result_2;
+}
+//獲取優惠行政費
+function getFirst2() {
+var firstNumber2 = document.getElementById("promoFee1").value;
+return firstNumber2;
+}
+//獲取優惠手續費
+function getSecond2() {
+var secondNumber2 = document.getElementById("promoFee2").value;
+return secondNumber2;
+}
+//獲取優惠獎金
+function getThird2() {
+var ThirdNumber2 = document.getElementById("promo_amt").value;
+return ThirdNumber2;
+}
+</script>
+</head>
+<body>
+<p>常態稽核罰金:</p>
+<table border="1" style="position: center;">
+<tr>
+<td>取款行政費(%)：</td>
+<td><input type="text" id="first" /></td>
+</tr>
+<tr>
+<td>取款手續費：</td>
+<td><input type="text" id="second" /></td>
+</tr>
+<tr>
+<td>提款金額：</td>
+<td><input type="text" id="wd_amt" /></td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;
+<button style="width: inherit" onclick="penalty()">Penalty</button>
+</td>
+</tr>
+<tr>
+<td colspan="2" rowspan="2">
+<p id="result"></p>
+</td>
+</tr>
+</table>
+
+<p>優惠稽核罰金:</p>
+<table border="1" style="position: center;">
+<tr>
+<td>行政費用(%)：</td>
+<td><input type="text" id="promoFee1" /></td>
+</tr>
+<tr>
+<td>手續費：</td>
+<td><input type="text" id="promoFee2" /></td>
+</tr>
+<tr>
+<td>優惠獎金：</td>
+<td><input type="text" id="promo_amt" /></td>
+</tr>
+<tr>
+<td colspan="2">&nbsp;
+<button style="width: inherit" onclick="penalty2()">Penalty</button>
+</td>
+</tr>
+<tr>
+<td colspan="2" rowspan="2">
+<p id="result2"></p>
+</td>
+</tr>
+</table>
+
+</body>
+</html>
